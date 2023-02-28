@@ -11,15 +11,11 @@ public class Pattern {
         {
             for(int j=1; j<=n; j++)
             {
-                if(j<=i)
+                if(j>i)
                 {
-                    System.out.print("*");
-                    //continue;
-                }
-                else{
-                    //System.out.print(" ");
                     continue;
                 }
+                System.out.print("*");
             }
             System.out.println();
         }
