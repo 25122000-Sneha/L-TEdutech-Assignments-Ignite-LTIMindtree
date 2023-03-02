@@ -11,7 +11,7 @@ public class FlagPattern6 {
         {
             for(int j=1; j<=n; j++)
             {
-                if((i==j) & (i==(int)Math.ceil(n/2.0)))
+                if((i==j) & (i==(n/2)+1))
                 {
                     System.out.print("*");
                 }

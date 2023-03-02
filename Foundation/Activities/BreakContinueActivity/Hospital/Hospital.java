@@ -31,5 +31,6 @@ public class Hospital {
             
         }while(true);
         System.out.println(count);
+        
     }
 }

@@ -18,7 +18,7 @@ public class ItalyFlag {
                 {
                     System.out.print("#");
                 }
-                else if((j>=(2*(n/2))) && (j<=(n/2)*3))
+                else if((j>n) && (j<=(n/2)*3))
                 {
                     System.out.print(")");
                 }
