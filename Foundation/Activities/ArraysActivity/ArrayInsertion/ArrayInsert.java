@@ -1,3 +1,7 @@
+
+//ERROR ERROR ERROR ERROR
+
+
 package Foundation.Activities.ArraysActivity.ArrayInsertion;
 
 import java.util.*;
@@ -30,25 +34,16 @@ public class ArrayInsert {
             System.out.print(String.format("%.1f", arr[i])+" ");
         }
 
-        HashMap<Double, Integer> map = new HashMap<Double, Integer>();
         for(int i=0; i<n; i++)
         {
-            if(map.containsKey(arr[i]))
+            for(int j=i+1; j<n; j++)
             {
-                map.put(arr[i], map.get(arr[i])+1);
-            }
-            else 
-            {
-                map.put(arr[i], 1);
-            }
-        }
-        System.out.println();
-        for(Map.Entry<Double, Integer> e : map.entrySet())
-        {
-            if(e.getValue() > 1)
-            {
-                System.out.println(e.getKey());
+                if(arr[i] == arr[j])
+                {
+                    System.out.println(arr[j]);
+                }
             }
         }
+        
     }
 }

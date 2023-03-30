@@ -1,3 +1,6 @@
+
+//wrong output
+
 package Foundation.Activities.BreakContinueActivity.Hospital;
 
 import java.util.Scanner;
@@ -11,10 +14,10 @@ public class Hospital2 {
         {
             String id = reader.nextLine();
             String valid ;
-            if((id.length()==4) && Character.isDigit(id.charAt(0))==true && Character.isDigit(id.charAt(1))==true && Character.isLetter(2)==true && Character.isLetter(3)==true)
+            if((id.length()==4) && Character.isDigit(id.charAt(0))==true && Character.isDigit(id.charAt(1))==true && Character.isDigit(2)==false && Character.isDigit(3)==false)
             {
-                String name = reader.nextLine();
-                valid = reader.nextLine();
+                String name = reader.next();
+                valid = reader.next();
                 //System.out.println(valid);
                 count++;
                 if(valid.equals("no"))

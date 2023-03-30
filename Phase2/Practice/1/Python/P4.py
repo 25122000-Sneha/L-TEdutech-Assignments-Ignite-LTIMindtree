@@ -1,0 +1,5 @@
+print("Number of students:")
+n = int(input())
+print("Number of teams:")
+t = int(input())
+print("The number of students in each team, left out is (", (n//t),",",(n%t),")")
