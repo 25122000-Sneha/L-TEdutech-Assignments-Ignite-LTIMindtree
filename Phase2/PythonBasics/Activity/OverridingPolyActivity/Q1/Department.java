@@ -1,4 +1,4 @@
-package Phase2.PythonBasics.AggregationActivity.Q1;
+package Phase2.PythonBasics.Activity.OverridingPolyActivity.Q1;
 
 public class Department {
     private String departmentName;
