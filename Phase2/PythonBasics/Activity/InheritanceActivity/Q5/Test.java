@@ -1,4 +1,4 @@
-package Phase2.PythonBasics.Activity.InheritanceActivity;
+package Phase2.PythonBasics.Activity.InheritanceActivity.Q5;
 import java.util.*;
 public class Test {
     public static void main(String[] args) {

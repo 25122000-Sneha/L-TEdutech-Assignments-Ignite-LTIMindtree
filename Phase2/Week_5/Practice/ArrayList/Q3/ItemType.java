@@ -1,4 +1,5 @@
-package Phase2.Week_5.ListActivity.Q3;
+package Phase2.Week_5.Practice.ArrayList.Q3;
+
 public class ItemType {
     private String name;
     private double deposit, costPerDay;

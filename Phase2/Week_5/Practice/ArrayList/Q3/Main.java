@@ -1,4 +1,4 @@
-package Phase2.Week_5.ListActivity.Q3;
+package Phase2.Week_5.Practice.ArrayList.Q3;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -12,10 +12,10 @@ public class Main {
             System.out.println("Name:");
             String name = reader.nextLine();
             System.out.println("Deposit:");
-            double deposit = reader.nextDouble();
+            double deposit = Double.parseDouble(reader.nextLine());
             System.out.println("Cost per Day:");
-            double cost = reader.nextDouble();
-            reader.nextLine();
+            double cost = Double.parseDouble(reader.nextLine());
+            
             ItemType obj = new ItemType(name, deposit, cost);
             arr.add(obj);
             i++;

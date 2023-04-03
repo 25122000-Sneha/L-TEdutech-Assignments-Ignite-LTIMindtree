@@ -1,20 +1,17 @@
-package Phase2.Week_5.ListActivity.Q5;
-
+package Phase2.Week_5.Practice.ArrayList.Q5;
 import java.util.*;
 public class Main {
-    public static void main(String[] args){
-    	//Your code here
-		Scanner reader = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
         ArrayList<Hall> arr = new ArrayList<Hall>();
         char ch;
         do{
             System.out.println("Action\n1.Add Hall\n2.Remove Hall");
             System.out.println("Enter your choice");
-            int choice = reader.nextInt();
+            int choice = Integer.parseInt(reader.nextLine());
             switch(choice)
             {
                 case 1:
-                    reader.nextLine();
                     System.out.println("Enter the Hall details in CSV format");
                     String d = reader.nextLine();
                     String[] dArr = d.split(",");
@@ -30,8 +27,7 @@ public class Main {
                     else 
                     {
                         System.out.println("Enter the index of the hall to be removed");
-                        int in = reader.nextInt();
-                        reader.nextLine();
+                        int in = Integer.parseInt(reader.nextLine());
                         arr.remove(in);
                         if(arr.isEmpty())
                         {
@@ -49,7 +45,6 @@ public class Main {
                     }
                     break;
                 default:
-                    reader.nextLine();
                     System.out.println("Please enter a valid choice");
                     break;
 

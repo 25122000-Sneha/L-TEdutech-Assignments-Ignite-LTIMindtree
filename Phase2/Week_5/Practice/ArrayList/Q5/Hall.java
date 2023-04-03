@@ -1,5 +1,4 @@
-package Phase2.Week_5.ListActivity.Q5;
-
+package Phase2.Week_5.Practice.ArrayList.Q5;
 
 public class Hall {
     private String name, contactNumber, ownerName;

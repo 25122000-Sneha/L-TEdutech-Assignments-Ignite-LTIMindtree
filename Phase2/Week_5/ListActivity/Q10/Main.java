@@ -10,8 +10,8 @@ public class Main {
 		{
 			System.out.println("1.Schedule Flight\n2.change status\n3.Display\n4.Exit");
 			//System.out.println("Enter your options:");
-			int op = reader.nextInt();
-            reader.nextLine();
+			int op = Integer.parseInt(reader.nextLine());
+            
 			
 			switch(op)
 			{

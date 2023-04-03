@@ -1,4 +1,5 @@
-package Phase2.Week_5.ListActivity.Q3;
+package Phase2.Week_6.Exceptions.Codes.Q3;
+
 public class ItemType {
     private String name;
     private double deposit, costPerDay;
@@ -30,10 +31,11 @@ public class ItemType {
     }
     public double getCostPerDay()
     {
-        return this.costPerDay;
+        return costPerDay;
     }
+    @Override
     public String toString()
     {
-        return String.format("%-20s%-20s%-20s", this.name, this.deposit, this.costPerDay);
+        return "Name:"+this.name+"\nDeposit:"+this.deposit+"\nCost Per Day:"+this.costPerDay;
     }
 }
