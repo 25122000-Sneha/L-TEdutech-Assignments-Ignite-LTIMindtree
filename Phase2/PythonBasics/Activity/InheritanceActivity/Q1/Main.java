@@ -4,18 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 		System.out.println("Choose Account Type\n1.Savings Account\n2.Current Account");
-		int ch = reader.nextInt();
-        reader.nextLine();
+		int ch = Integer.parseInt(reader.nextLine());
 		switch(ch)
 		{
 			case 1:
                 System.out.println("Enter Account details in comma separated(Account Name,Account Number,Bank Name,Organisation Name)");
                 String detailsS = reader.nextLine();
                 String[] detailsArrS = detailsS.split(",");
-                // for (String each : detailsArrS)
-                // {
-                //     System.out.println(each);
-                // }
                 SavingsAccount objS = new SavingsAccount(detailsArrS[0], detailsArrS[1], detailsArrS[2], detailsArrS[3]);
                 objS.display();
                 break;

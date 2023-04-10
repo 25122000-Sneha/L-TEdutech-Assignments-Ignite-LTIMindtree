@@ -1,37 +1,35 @@
 package Phase2.Week_5.TreeSetActivity.Q1;
 import java.util.*;
-public class Expense implements Comparator<Expense>{
+public class Expense implements Comparable<Expense>{
     private String expenseCategory;
     private Integer amount;
-    Expense(){};
-    Expense(String expenseCategory, Integer amount)
-    {
-        this.expenseCategory = expenseCategory;
-        this.amount = amount;
-    }
-    public void setCategory(String cat)
+    Expense(String cat, Integer amt)
     {
         this.expenseCategory = cat;
-    }
-    public void setAmount(Integer amt)
-    {
         this.amount = amt;
     }
-    public String getCategory()
+    public String getExpenseCategory() {
+        return expenseCategory;
+    }
+    public void setExpenseCategory(String expenseCategory) {
+        this.expenseCategory = expenseCategory;
+    }
+    public Integer getAmount() {
+        return amount;
+    }
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+    @Override 
+    public int compareTo(Expense that)
     {
-        return this.expenseCategory;
+        return Integer.compare(this.amount, that.amount);
     }
-    public Integer getAmount()
+    @Override 
+    public String toString()
     {
-        return this.amount;
+        return String.format("%-15s%-15s", this.expenseCategory, this.amount);
     }
-    @Override
-    public int compare(Expense obj1, Expense obj2) {
-        if(obj1.getAmount() < obj2.getAmount())
-        {
-            return 1;
-        }
-        else 
-        return -1;
-    }
+
+    
 }

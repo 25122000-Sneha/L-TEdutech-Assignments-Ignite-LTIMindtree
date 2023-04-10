@@ -26,7 +26,7 @@ class StackClass{
 public class Main {
 
     
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) {
         StackClass st = new StackClass();
         try
         {

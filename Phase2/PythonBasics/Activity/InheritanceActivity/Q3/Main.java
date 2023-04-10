@@ -1,5 +1,6 @@
 package Phase2.PythonBasics.Activity.InheritanceActivity.Q3;
 
+
 import java.util.*;
 public class Main {
 
@@ -8,11 +9,10 @@ public class Main {
 		Scanner reader = new Scanner(System.in);
 		String str, arr[];
 		System.out.println("Choose Event type\n1.Exhibition\n2.StageEvent");
-		int ch = reader.nextInt();
+		int ch = Integer.parseInt(reader.nextLine());
 		switch(ch)
 		{
 			case 1:
-						reader.nextLine();
 						System.out.println("Enter the details in CSV format");
 						str = reader.nextLine();
 						arr = str.split(",");
@@ -20,7 +20,6 @@ public class Main {
 						e.display();
 						break;
 			case 2:
-						reader.nextLine();
 						System.out.println("Enter the details in CSV format");
 						str = reader.nextLine();
 						arr = str.split(",");
@@ -35,4 +34,3 @@ public class Main {
 		
 	}
 }
-

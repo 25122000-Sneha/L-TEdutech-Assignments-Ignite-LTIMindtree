@@ -1,12 +1,15 @@
-set1 = set(map(int, input().split(",")))
 if __name__=="__main__":
     #Fill your code here.
-    set1 = set(map(int, input().split(",")))
-    set2 = set(map(int, input().split(",")))
-    if(set1 == set2):
+    l1 = list(map(int, input().split(",")))
+    l2 = list(map(int, input().split(",")))
+    set1 = set(l1)
+    set2 = set(l2)
+    if set1 == set2:
         print("invalid set")
     else:
-        new_list= sorted(set1.symmetric_difference(set2))
-        new_str = ",".join([str(each) for each in new_list])
-        print("{"+new_str+"}")
-        
+        set3 = set1.symmetric_difference(set2)
+        new_list = list(set3)
+        new_list.sort()
+        sorted_list = ",".join(str(x) for x in new_list)
+        print("{",sorted_list,"}")
+
