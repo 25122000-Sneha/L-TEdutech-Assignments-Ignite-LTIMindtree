@@ -1,0 +1,2 @@
+DELETE FROM building 
+	WHERE owner_name LIKE 'Muhammad Hafaz';

@@ -1,0 +1,2 @@
+INSERT INTO electricity_connection_type VALUES (19001, 'Home');
+INSERT INTO electricity_connection_type VALUES (19002, 'Office');

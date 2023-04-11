@@ -1,0 +1,5 @@
+INSERT INTO building_type VALUES(1, "Rachana", 1001);
+INSERT INTO building_type VALUES(2, "Sunny", 1002);
+INSERT INTO building_type VALUES(3, "Richie", 1003);
+INSERT INTO building_type VALUES(4, "Oswald", 1004);
+INSERT INTO building_type VALUES(5, "Daisy", 1005);
