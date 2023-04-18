@@ -1,0 +1,61 @@
+package q4;
+import java.sql.*;
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stud
+		Scanner reader = new Scanner(System.in);
+		int dltId = Integer.parseInt(reader.nextLine());
+		reader.close();
+		
+		try 
+		{
+		
+		String url = "jdbc:mysql://localhost:3306/aliens";
+		String uName = "root";
+		String pass = "Dutta@2000";
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		Connection con = DriverManager.getConnection(url, uName, pass);
+		
+		Statement st = con.createStatement();
+		
+		st.executeUpdate("INSERT INTO OFFICE VALUES(101, 'Zara', 30000)");
+		st.executeUpdate("INSERT INTO OFFICE VALUES(102, 'zyana', 40000)");
+		st.executeUpdate("INSERT INTO OFFICE VALUES(103, 'Soban', 60000)");
+		st.executeUpdate("INSERT INTO OFFICE VALUES(104, 'Kumar', 70000)");
+		st.executeUpdate("INSERT INTO OFFICE VALUES(105, 'Lavanya', 80000)");
+		
+		String query = "DELETE FROM OFFICE WHERE EID = ?";
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setInt(1, dltId);
+		
+		ps.executeUpdate();
+		
+		ResultSet rs = st.executeQuery("SELECT * FROM OFFICE");
+		
+		String data = "";
+		while(rs.next())
+		{
+			data = rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3);
+			System.out.println(data);
+		}
+		
+		st.close();
+		ps.close();
+		con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
+		
+		
+		
+	}
+
+}

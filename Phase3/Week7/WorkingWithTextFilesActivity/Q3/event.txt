@@ -1,0 +1,4 @@
+Event details
+Event name:Bday Party
+Event details:Mike Hannigon's birthday
+Event manager:John

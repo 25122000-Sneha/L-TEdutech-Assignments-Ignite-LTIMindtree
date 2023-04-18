@@ -1,0 +1,50 @@
+package JDBCActivityA4;
+import java.util.*;
+import java.io.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner reader = new Scanner(System.in);
+		String uName;
+		User obj;
+		try
+		{	
+			System.out.println("Enter the details of hall in csv format:");
+			String detail = reader.nextLine();
+			String[] detailArr = detail.split(",");
+			
+			System.out.println("Enter the username:");
+			uName = reader.nextLine();
+			
+			UserDAO udao = new UserDAO();
+			obj = udao.getUser(uName);
+			while(obj == null)
+			{
+				System.out.println("Username seems to be wrong!! Enter the correct username:");
+				uName = reader.nextLine();
+				obj = udao.getUser(uName);
+			}
+			
+			Hall hallObj = new Hall(detailArr[0], detailArr[1], Double.parseDouble(detailArr[2]), obj);
+			
+			HallDAO hdao = new HallDAO();
+			
+			hdao.saveHall(hallObj);
+			
+			List<Hall> arr = hdao.getAllHall();
+			
+			System.out.printf("%-15s%-15s%-15s%-15s\n", "Name", "Mobile", "Cost", "Owner");
+			for(Hall h : arr)
+			{
+				System.out.printf("%-15s%-15s%-15s%-15s\n", h.getName(), h.getContactNumber(), String.format("%.1f",  h.getCostPerDay()), h.getOwner().getName());
+			}
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+
+}

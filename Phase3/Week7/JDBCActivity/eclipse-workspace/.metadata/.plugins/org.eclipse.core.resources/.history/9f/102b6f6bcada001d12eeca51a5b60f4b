@@ -1,0 +1,31 @@
+package JDBCActivityA4;
+import java.sql.*;
+public class UserDAO {
+	public User getUser(String username) throws Exception
+	{
+		String query = "SELECT * FROM user WHERE name LIKE '"+username+"'";
+		
+		Connection con = DbConnection.getConnection();
+		
+		Statement st = con.createStatement();
+		
+		ResultSet rs = st.executeQuery(query);
+		
+		if(rs.next())
+		{
+			Long id = rs.getLong(1);
+			String name = rs.getString(2);
+			String mobileNumber = rs.getString(3);
+			String usname = rs.getString(4);
+			String password = rs.getString(5);
+			
+			User obj = new User(id, name, mobileNumber, usname, password);
+			return obj;
+		}
+		else 
+		{
+			return null;
+		}
+		
+	}
+}

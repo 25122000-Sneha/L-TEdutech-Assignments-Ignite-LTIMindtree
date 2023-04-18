@@ -1,0 +1,10 @@
+CREATE PROCEDURE findConnection(IN contact_number VARCHAR(100), OUT connection VARCHAR(100))
+BEGIN
+	SELECT connection_name INTO connection
+    FROM electricity_connection_type ect
+    INNER JOIN building_type bt
+    ON ect.id = bt.connection_type_id
+    INNER JOIN building b
+    ON bt.id = b.building_type_id
+    WHERE b.contact_number = contact_number;
+END;

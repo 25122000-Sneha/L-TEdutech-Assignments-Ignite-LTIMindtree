@@ -1,0 +1,11 @@
+CREATE PROCEDURE insertConnection(IN connection_name VARCHAR(100))
+BEGIN
+	DECLARE connection_count INT;
+	SELECT COUNT(*) INTO connection_count
+    FROM electricity_connection_type;
+	INSERT INTO electricity_connection_type VALUES(connection_count+1, connection_name);
+END;
+
+/*call insertConnection('Office');*/
+/*drop procedure insertConnection;*/
+/*SELECT * FROM electricity_connection_type;*/

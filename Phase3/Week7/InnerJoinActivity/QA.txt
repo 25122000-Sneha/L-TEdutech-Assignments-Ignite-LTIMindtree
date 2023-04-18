@@ -1,0 +1,109 @@
+1.
+SELECT r.id, route_name, tp.id, travel_card_id, entry_station_id, entry_time, exit_station_id, exit_time, amount 
+	FROM travel_payment tp
+    INNER JOIN station s
+    	ON tp.entry_station_id = s.id
+	INNER JOIN station_route sr
+    	ON s.id = sr.station_id
+	INNER JOIN route r
+    	ON sr.route_id = r.id
+	ORDER BY route_name;
+
+2.
+SELECT r.route_name 
+FROM route r 
+INNER JOIN station_route sr
+ON sr.route_id = r.id
+INNER join station s 
+ON sr.station_id = s.id
+WHERE s.name LIKE 'Woodlands MRT station'
+ORDER BY r.route_name ASC;
+
+3.
+SELECT person_name, contact_number, balance, entry_time, exit_time
+FROM travel_card tc INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+INNER JOIN station s
+ON tp.entry_station_id = s.id
+WHERE s.name LIKE 'Sengkang MRT station'
+ORDER BY person_name;
+
+
+4.
+SELECT * FROM travel_card tc
+INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+WHERE amount > 25
+AND DATE(exit_time) = '2017-12-21'
+ORDER BY person_name;
+
+5.
+SELECT person_name, contact_number, balance
+FROM travel_card tc INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+WHERE amount = (SELECT MIN(amount) FROM travel_payment)
+ORDER BY person_name DESC;
+
+6.
+SELECT position, updated_time, forward, scheduled_time, actual_time
+	FROM metro_train m 
+    INNER JOIN train_arrival_time ta
+    	ON ta.metro_train_id = m.id
+	INNER JOIN train_schedule ts
+    	ON ta.train_schedule_id = ts.id
+	INNER JOIN route r
+    	ON r.id = m.route_id
+	WHERE route_name IN ('North South line', 'Circle line')
+    ORDER BY position;
+
+
+
+7.
+SELECT person_name, contact_number
+FROM travel_card tc INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+INNER JOIN station s
+ON tp.exit_station_id = s.id
+INNER JOIN station_route sr
+ON sr.station_id = s.id
+INNER JOIN route r
+ON sr.route_id = r.id
+WHERE route_name LIKE 'North East line'
+AND amount>25
+ORDER BY person_name;
+
+8.
+SELECT name, locality 
+FROM station s
+INNER JOIN train_schedule ts
+ON ts.station_id = s.id
+INNER JOIN station_route sr
+ON sr.station_id = s.id
+INNER JOIN route r
+ON r.id = sr.route_id
+WHERE DATE(scheduled_time) = '2017-12-21'
+AND route_name LIKE 'Circle line'
+ORDER BY s.name;
+
+9.
+SELECT person_name, contact_number, balance, entry_time, exit_time
+FROM travel_card tc INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+WHERE balance = 
+(
+  SELECT balance FROM travel_card 
+  ORDER BY balance DESC limit 1,1
+)
+ ORDER BY person_name;
+
+
+10.
+SELECT person_name, contact_number, balance, entry_time, exit_time
+FROM travel_card tc INNER JOIN travel_payment tp
+ON tp.travel_card_id = tc.id
+WHERE balance = 
+(
+  SELECT balance FROM travel_card 
+  ORDER BY balance DESC limit 1,1
+)
+ ORDER BY person_name;

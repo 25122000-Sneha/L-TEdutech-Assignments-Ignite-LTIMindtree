@@ -1,0 +1,65 @@
+package JDBCActivityA4;
+import java.util.*;
+import java.sql.*;
+public class HallDAO {
+	public List<Hall> getAllHall() throws Exception
+	{
+		String query = "SELECT h.id, h.name, h.contact_detail, h.cost_per_day, u.name, u.username FROM Hall h INNER JOIN user u ON h.owner_id = u.id;";
+		
+		Connection con = DbConnection.getConnection();
+		
+		Statement st = con.createStatement();
+		
+		ResultSet rs = st.executeQuery(query);
+		
+		List<Hall> arr = new ArrayList<Hall>();
+		
+		UserDAO udao = new UserDAO();
+		while(rs.next())
+		{
+			Long hallId = rs.getLong(1);
+			String hallName = rs.getString(2);
+			String contact = rs.getString(3);
+			Double cost = rs.getDouble(4);
+			User owner = udao.getUser(rs.getString(6));
+			
+			Hall h = new Hall(hallId, hallName, contact, cost, owner);
+			
+			arr.add(h);
+		}
+		
+		Collections.sort(arr, (h1, h2) -> {return Long.compare(h1.getId(), h2.getId());});
+		
+		st.close();
+		con.close();
+		
+		return arr;
+	}
+	
+	public void saveHall(Hall hall) throws Exception
+	{
+		String query = "INSERT INTO Hall(name, contact_detail, cost_per_day, owner_id) VALUES(?, ?, ?, ?)";
+		
+		Connection con = DbConnection.getConnection();
+		
+		PreparedStatement st = con.prepareStatement(query);
+		
+		System.out.println("hello");
+		System.out.println(hall.getName());
+		System.out.println(hall.getContactNumber());
+		System.out.println(hall.getCostPerDay());
+		System.out.println(hall.getOwner().getId());
+		
+		st.setString(1, hall.getName());
+		st.setString(2, hall.getContactNumber());
+		st.setDouble(3, hall.getCostPerDay());
+		st.setLong(4,  hall.getOwner().getId());
+		
+		int count = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		
+	}
+}

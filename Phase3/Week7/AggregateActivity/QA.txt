@@ -1,0 +1,39 @@
+1.
+SELECT AVG(total_units) "average_units_of_electricity"
+	FROM electricity_reading;
+
+2.
+SELECT AVG(payable_amount) "average_payable_amount"
+	FROM bill
+    WHERE payable_amount > 10000;
+
+3.
+SELECT SUM(payable_amount) "sum_payable_amount" 
+	FROM bill;
+
+4.
+SELECT SUM(payable_amount) "sum_payable_amount"
+	FROM bill
+    WHERE due_date = '2017-10-01';
+
+5.
+SELECT MIN(total_units) "min_total_units"
+	FROM electricity_reading;
+
+6.
+SELECT AVG(h8) "average_8th_hour_consumption"
+	FROM electricity_reading;
+
+7.
+SELECT SUM(payable_amount + fine_amount) "sum_payable_and_fine_amount"
+	FROM bill
+    WHERE fine_amount IS NOT NULL;
+
+8.
+SELECT SUM(h12) "sum_12th_hour_consumption"
+	FROM electricity_reading;
+
+9.
+SELECT SUM(payable_amount) "sum_payable_amount"
+	FROM bill
+    WHERE YEAR(payment_date) LIKE '2018';

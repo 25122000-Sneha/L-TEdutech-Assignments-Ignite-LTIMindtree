@@ -1,0 +1,11 @@
+CREATE PROCEDURE insertMeter(IN meter_number VARCHAR(100), IN building_id INT)
+BEGIN
+	DECLARE count_meter INT;
+    SELECT COUNT(*) INTO count_meter 
+    FROM meter;
+    INSERT INTO meter VALUES(count_meter+1, meter_number, building_id);
+END;
+
+/*CALL insertMeter('SG9494', 8);*/
+/*DROP PROCEDURE insertMeter;*/
+/*SELECT * FROM meter;*/

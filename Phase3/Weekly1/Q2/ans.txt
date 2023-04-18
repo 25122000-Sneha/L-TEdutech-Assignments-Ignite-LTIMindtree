@@ -1,0 +1,16 @@
+DELIMITER &&
+CREATE PROCEDURE insertUser(IN id INT, IN name VARCHAR(100), IN dept VARCHAR(25), IN phone VARCHAR(100))
+BEGIN
+    INSERT INTO users VALUES(id, name, dept, phone);
+END &&
+DELIMITER ;
+
+DELIMITER &&
+CREATE PROCEDURE studentsInDepartmentCount(IN dept VARCHAR(100), OUT counter INT)
+BEGIN
+    SELECT COUNT(id) INTO counter
+    FROM users
+    WHERE users.dept LIKE dept;
+END &&
+DELIMITER ;
+

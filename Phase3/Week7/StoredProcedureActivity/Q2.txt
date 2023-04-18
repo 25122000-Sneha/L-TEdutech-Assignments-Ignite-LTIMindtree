@@ -1,0 +1,11 @@
+CREATE PROCEDURE findTotalUnits(IN meter_number VARCHAR(100))
+BEGIN
+	SELECT total_units FROM electricity_reading er
+    INNER JOIN meter m
+    ON m.id = er.meter_id
+    WHERE m.meter_number = meter_number;
+END;
+
+/*call findTotalUnits('SG934826');*/
+/*drop procedure findTotalUnits;*/
+/*SELECT * FROM meter;*/

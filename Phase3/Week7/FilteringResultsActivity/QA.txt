@@ -1,0 +1,74 @@
+1. 
+SELECT * FROM building
+    WHERE owner_name LIKE 'Nicholas';
+
+2.
+SELECT * FROM bill
+	WHERE total_units > 10000
+    ORDER BY total_units DESC;
+
+3.
+SELECT * FROM bill
+	WHERE due_date = '2017-10-01'
+    ORDER BY payable_amount DESC;
+
+4.
+SELECT * FROM bill
+	WHERE YEAR(payment_date) LIKE '2018'
+    ORDER BY payable_amount DESC;
+
+5.
+SELECT owner_name, address, contact_number
+	FROM building
+    WHERE email_address IS NULL
+    ORDER BY owner_name ASC;
+
+6.
+SELECT * FROM building
+	WHERE building_type_id = 2
+    ORDER BY owner_name ASC;
+
+7.
+SELECT * FROM electricity_reading
+	WHERE total_units BETWEEN 500 AND 1000
+    ORDER BY total_units ASC;
+
+8.
+SELECT * FROM bill
+	WHERE is_payed = 0
+    ORDER BY due_date ASC;
+
+9.
+SELECT meter_id, total_units
+	FROM electricity_reading
+    WHERE h13 < h14
+    ORDER BY total_units DESC;
+
+10.
+SELECT * FROM meter
+	WHERE meter_number LIKE 'S%6';
+
+11.
+SELECT name FROM building_type
+	WHERE name LIKE '%L'
+    ORDER BY name;
+
+12.
+SELECT * FROM building
+	WHERE owner_name LIKE '%di%'
+    ORDER BY owner_name ASC;
+
+13.
+SELECT * FROM bill
+	WHERE DAY(payment_date) = 2
+    ORDER BY total_units DESC;
+
+14.
+SELECT due_date, payable_amount 
+	FROM bill
+    WHERE payment_date NOT BETWEEN '2017-09-10' AND '2017-10-10';
+
+15.
+SELECT due_date, payment_date, DATEDIFF(due_date, payment_date) "date_difference", payable_amount
+	FROM bill
+    WHERE payment_date <= due_date;

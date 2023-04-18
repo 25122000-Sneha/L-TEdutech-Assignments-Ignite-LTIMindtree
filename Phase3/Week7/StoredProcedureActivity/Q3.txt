@@ -1,0 +1,14 @@
+CREATE PROCEDURE getBillLevel(IN bill_id INT, OUT level VARCHAR(50))
+BEGIN
+	DECLARE totalUnits INT;
+    SELECT b.total_units INTO totalUnits
+    FROM bill b
+    WHERE b.id = bill_id;
+    IF totalUnits >= 10000 THEN 
+    	SET level = 'PLATINUM';
+    ELSEIF totalUnits<10000 THEN
+    	SET level = 'GOLD';
+    END IF;
+END;
+
+/*drop procedure getBillLevel;*/

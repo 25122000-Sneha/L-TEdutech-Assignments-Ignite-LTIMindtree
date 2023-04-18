@@ -1,0 +1,36 @@
+package JdbcPractical;
+import java.sql.*;
+public class DemoInsert2 {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+		String url = "jdbc:mysql://localhost:3306/aliens";               //db name in url
+		String uname = "root";
+		String pass = "Dutta@2000";
+		
+		int id = 6;
+		String name = "Dipali";
+		
+		
+		String query = "insert into student values(?, ?)"; 
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");                         
+																	
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		PreparedStatement st = con.prepareStatement(query);
+		
+		st.setInt(1, id);
+		st.setString(2, name);
+		
+		int count = st.executeUpdate();        
+		
+		System.out.println(count + " row/s affected");
+		
+		
+		st.close();
+		con.close();
+
+
+	}
+
+}
