@@ -1,5 +1,5 @@
 package Phase3.Week8.ChainedExceptionsDemo;
-public class Main{
+public class Demo1{
     public static int getValue() throws MyException
     {
         int a = 0;
