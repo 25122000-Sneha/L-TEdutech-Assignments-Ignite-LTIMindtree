@@ -1,0 +1,3 @@
+[31, ‘John’, ‘CSE’]
+[42,’James’,’IT’]
+[43,’Jack’,’Mech’]
