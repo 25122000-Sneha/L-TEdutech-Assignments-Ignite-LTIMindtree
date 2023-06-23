@@ -9,7 +9,7 @@ public class Demo1{
         }
         catch(ArithmeticException e)
         { 
-            throw new MyException(e.getMessage(), e);
+            throw new MyException("MyException occured", e);
         }
         return a;
     }
@@ -21,8 +21,9 @@ public class Demo1{
         }
         catch(MyException me)
         {
-            System.out.println("Cause = "+me.getCause());
-            System.out.println("Message = "+me.getMessage());
+            System.out.println("Caught: "+me.getMessage());
+            System.out.println("Caused by: "+me.getCause());
+            
         }
     }
 }

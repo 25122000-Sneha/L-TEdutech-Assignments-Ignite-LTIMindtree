@@ -8,13 +8,13 @@ public class Main {
 		System.out.println("Enter the user detail in CSV format");
 		String detail = reader.nextLine();
 		String[] detailArr = detail.split(",");
-		User u = new User(Long.parseLong(detailArr[0]), detailArr[1], detailArr[2], detailArr[3], detailArr[4]);
+		User u = new User(detailArr[0], detailArr[1], detailArr[2], detailArr[3]);
 		UserDAO udao = new UserDAO();
 		
 		try 
 		{
 			udao.insertDetails(u);
-			List<User> arr = udao.getAllUsers();
+			List<User> arr = udao.getAllUser();
 			
 			System.out.printf("%-5s %-10s %-15s %-10s %s\n","Id","Name","Contact Detail","Username","Password");
 			for(User obj : arr)
@@ -30,5 +30,6 @@ public class Main {
 		
 		
 	}
+
 
 }

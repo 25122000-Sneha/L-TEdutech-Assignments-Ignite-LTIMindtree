@@ -1,0 +1,9 @@
+DELIMITER //
+CREATE PROCEDURE InsertStudent(name varchar(30),age int)
+Begin
+    INSERT INTO Student VALUES(name, age);
+END //
+DELIMITER ;
+
+call InsertStudent('Michael',25);
+SELECT * from Student;

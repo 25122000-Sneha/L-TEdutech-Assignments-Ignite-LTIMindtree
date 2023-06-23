@@ -5,9 +5,9 @@ public class User {
 	private String name, contactDetail, username, password;
 	
 	User(){}
-	User(Long id, String name, String contactDetail, String username, String password)
+	
+	User(String name, String contactDetail, String username, String password)
 	{
-		this.id = id;
 		this.name = name;
 		this.contactDetail = contactDetail;
 		this.username = username;

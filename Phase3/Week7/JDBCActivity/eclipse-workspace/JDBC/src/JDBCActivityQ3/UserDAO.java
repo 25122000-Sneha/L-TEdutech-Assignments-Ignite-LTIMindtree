@@ -2,13 +2,13 @@ package JDBCActivityQ3;
 import java.util.*;
 import java.sql.*;
 public class UserDAO {
-	public List<User> getAllUsers() throws Exception
+	public List<User> getAllUser() throws Exception
 	{
 		Connection con = DbConnection.getConnection();
 		
 		Statement st = con.createStatement();
 		
-		String query = "SELECT * FROM User";
+		String query = "SELECT * FROM user";
 		
 		ResultSet rs = st.executeQuery(query);
 		
@@ -22,7 +22,8 @@ public class UserDAO {
 			String username = rs.getString(4);
 			String password = rs.getString(5);
 			
-			User obj = new User(id, name, contactDetail, username, password);
+			User obj = new User(name, contactDetail, username, password);
+			obj.setId(id);
 			arr.add(obj);
 		}
 		
@@ -36,15 +37,15 @@ public class UserDAO {
 	{
 		Connection con = DbConnection.getConnection();
 		
-		String query1 = "INSERT INTO User VALUES(?, ?, ?, ?, ?)";
-		PreparedStatement st = con.prepareStatement(query1);
-		st.setLong(1, u.getId());
-		st.setString(2,  u.getName());
-		st.setString(3,  u.getContactDetail());
-		st.setString(4,  u.getUsername());
-		st.setString(5,  u.getPassword());
+		String query1 = "INSERT INTO user(name, contact_detail, username, password) VALUES(?, ?, ?, ?)";
+		PreparedStatement st = con.prepareStatement(query1, Statement.RETURN_GENERATED_KEYS);
+
+		st.setString(1,  u.getName());
+		st.setString(2,  u.getContactDetail());
+		st.setString(3,  u.getUsername());
+		st.setString(4,  u.getPassword());
 		
-		int count = st.executeUpdate();
+		st.executeUpdate();
 		
 		st.close();
 		con.close();

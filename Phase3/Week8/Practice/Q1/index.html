@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>My Web Page 1</title>
+    </head>
+    <body>
+        <p>Please input a number.</p>
+        <input type="text" id="demo"></input>
+        <button onclick="display()">Click Me!</button>
+        <p id="result"></p>
+
+        <script>
+            function display(){
+                let val = document.getElementById("demo").value;
+                if(isNaN(val))
+                {
+                    document.getElementById("result").innerHTML = "Not Numeric";
+                }
+                else 
+                {
+                    document.getElementById("result").innerHTML = "Numeric";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+<!-- Fill your code -->
+<div *ngFor="let person of peopleList">
+  <p [ngSwitch]="person.country">
+    <span *ngSwitchCase="'India'" style="color: #0BB541">{{person.name}}</span>
+    <span *ngSwitchCase="'USA'" style="color: #1467CA">{{person.name}}</span>
+    <span *ngSwitchCase="'UK'" style="color: #C230E2">{{person.name}}</span>
+  </p>
+</div>

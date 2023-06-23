@@ -3,7 +3,7 @@ import java.sql.*;
 public class DbConnection {
 	static Connection getConnection() throws Exception
 	{
-		String url = "jdbc:mysql://localhost:3306/items";
+		String url = "jdbc:mysql://localhost:3306/aliens";
 		String uname = "root";
 		String pass = "Dutta@2000";
 		

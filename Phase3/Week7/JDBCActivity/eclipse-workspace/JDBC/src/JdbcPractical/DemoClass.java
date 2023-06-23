@@ -12,8 +12,9 @@ import java.sql.*;
 
 public class DemoClass {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args){
 		 
+		try {
 		String url = "jdbc:mysql://localhost:3306/aliens";               //db name in url
 		String uname = "root";
 		String pass = "Dutta@2000";
@@ -32,6 +33,11 @@ public class DemoClass {
 		
 		st.close();
 		con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception occured");
+		}
 		
 
 	}
